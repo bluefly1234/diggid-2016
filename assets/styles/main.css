@@ -1,0 +1,287 @@
+@import 'normalize.css';
+html,
+body {
+  width: 3520px;
+  height: 616px;
+  overflow: hidden;
+  background-color: #000;
+}
+.welcome {
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 3080px;
+  margin: 0 auto;
+}
+.welcome .user {
+  width: 10%;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.welcome .user img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+/**
+ * [row 动态样式控制]
+ * @param  {Number} @number:1) when(@number< [description]
+ * @return {[type]}            [生成0-10动态控制样式]
+ */
+.row-1 .user {
+  width: 20%;
+}
+.row-1 .rollover {
+  width: 616px;
+  height: 616px;
+}
+.row-2 .user {
+  width: 10%;
+}
+.row-2 .rollover {
+  width: 308px;
+  height: 308px;
+}
+.row-3 .user {
+  width: 6.66666667%;
+}
+.row-3 .rollover {
+  width: 205.33333333px;
+  height: 205.33333333px;
+}
+.row-4 .user {
+  width: 5%;
+}
+.row-4 .rollover {
+  width: 154px;
+  height: 154px;
+}
+.row-5 .user {
+  width: 4%;
+}
+.row-5 .rollover {
+  width: 123.2px;
+  height: 123.2px;
+}
+.row-6 .user {
+  width: 3.33333333%;
+}
+.row-6 .rollover {
+  width: 102.66666667px;
+  height: 102.66666667px;
+}
+.row-7 .user {
+  width: 2.85714286%;
+}
+.row-7 .rollover {
+  width: 88px;
+  height: 88px;
+}
+.row-8 .user {
+  width: 2.5%;
+}
+.row-8 .rollover {
+  width: 77px;
+  height: 77px;
+}
+.row-9 .user {
+  width: 2.22222222%;
+}
+.row-9 .rollover {
+  width: 68.44444444px;
+  height: 68.44444444px;
+}
+.row-10 .user {
+  width: 2%;
+}
+.row-10 .rollover {
+  width: 61.6px;
+  height: 61.6px;
+}
+.rollover {
+  position: relative;
+  display: block;
+  perspective: 800px;
+}
+.rollover .front,
+.rollover .back {
+  position: absolute;
+  background: #fff;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+.rollover .front {
+  z-index: 2;
+  opacity: 1;
+  transform: translate3d(0, 0, 1px);
+}
+.rollover .back {
+  z-index: 1;
+  opacity: 0;
+  transform: rotateY(180deg) translate3d(0, 0, 0);
+}
+.rollover .cube {
+  transform-style: preserve-3d;
+  transform: rotateX(0) rotateY(0) rotateZ(0);
+  transition: 1s;
+}
+.coming .back,
+.rollover:hover .back {
+  z-index: 2;
+  opacity: 1;
+}
+.coming .front,
+.rollover:hover .front {
+  z-index: 1;
+  opacity: 0;
+}
+.coming .cube,
+.rollover:hover .cube {
+  transform: rotateY(180deg);
+}
+#canvasgame {
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.view-stage {
+  width: 3520px;
+  height: 616px;
+}
+.movecenter {
+  -webkit-animation: wobblebig 1s ease 0s 1;
+  animation: wobblebig 1s ease 0s 1;
+}
+@-webkit-keyframes wobblebig {
+  0% {
+    -webkit-transform: none;
+  }
+  15% {
+    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg) scale3d(4, 4, 4);
+  }
+  30% {
+    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+  45% {
+    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg) scale3d(2, 2, 2);
+  }
+  60% {
+    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+  75% {
+    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg) scale3d(4, 4, 4);
+  }
+  100% {
+    -webkit-transform: none;
+  }
+}
+#app.active {
+  background: transparent url(../images/backgroud.jpg) no-repeat 100% 100%;
+  background-size: 100% 100%;
+}
+#app.active .welcome {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+#luckpage {
+  position: fixed;
+  top: 320px;
+  left: 1800px;
+}
+#luckpage .container {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 33%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-perspective: 400px;
+  perspective: 400px;
+}
+#luckpage .cube {
+  height: 200px;
+  widht: 200px;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 1s;
+}
+#luckpage .side {
+  position: absolute;
+  display: block;
+  height: 200px;
+  width: 200px;
+}
+#luckpage .side img {
+  width: 100%;
+  height: 100%;
+}
+#luckpage .side p {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+#luckpage .side1 {
+  background: #41C3AC;
+  -webkit-transform: translateZ(200px);
+  transform: translateZ(200px);
+}
+#luckpage .side2 {
+  background: #FF884D;
+  -webkit-transform: rotateY(90deg) translateZ(200px);
+  transform: rotateY(90deg) translateZ(200px);
+}
+#luckpage .side3 {
+  background: #32526E;
+  -webkit-transform: rotateY(180deg) translateZ(200px);
+  transform: rotateY(180deg) translateZ(200px);
+}
+#luckpage .side4 {
+  background: #65A2C5;
+  -webkit-transform: rotateY(-90deg) translateZ(200px);
+  transform: rotateY(-90deg) translateZ(200px);
+}
+#luckpage .side5 {
+  background: #FFCC5C;
+  -webkit-transform: rotateX(90deg) translateZ(200px);
+  transform: rotateX(90deg) translateZ(200px);
+}
+#luckpage .side6 {
+  background: #FF6B57;
+  -webkit-transform: rotateX(-90deg) translateZ(200px);
+  transform: rotateX(-90deg) translateZ(200px);
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  33.33% {
+    -webkit-transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+  }
+  66.66% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}

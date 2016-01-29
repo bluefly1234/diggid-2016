@@ -1,0 +1,18 @@
+{
+  "name": "diggid-2016",
+  "homepage": "https://github.com/vace/diggid-2016",
+  "authors": [
+    "Vace <ocdo@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
